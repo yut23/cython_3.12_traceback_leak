@@ -3,7 +3,7 @@ test: cython_module
 	command time python test.py 20
 
 cython_module:
-	cythonize -i lib.pyx
+	CPPFLAGS='-DCYTHON_FAST_THREAD_STATE=1' cythonize -X language_level=3 -f -i lib.pyx
 
 clean:
 	rm -rf lib.c *.so build/
