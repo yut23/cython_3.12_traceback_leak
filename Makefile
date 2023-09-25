@@ -1,6 +1,6 @@
-test: cython_module
-	command time python test.py 10
-	command time python test.py 20
+repro: cython_module
+	command time python repro.py 10
+	command time python repro.py 20
 
 inspect: cython_module
 	python inspect_leak.py
@@ -11,4 +11,4 @@ cython_module:
 clean:
 	rm -rf lib.c *.so build/
 
-.PHONY: test inspect cython_module clean
+.PHONY: repro inspect cython_module clean
